@@ -1,0 +1,13 @@
+{
+  "content": {
+    "riskRating": "High",
+    "partyType": "Individual",
+    "primaryId": {
+      "number": "${clientCode}",
+      "type": {
+        "code": "CIF Code",
+        "description": "CIF Code"
+      }
+    }
+  }
+}

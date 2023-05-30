@@ -1,0 +1,13 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aff="http://affordabilityprepopulationservice/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <aff:RetrieveIncomeCalculation>
+            <!--Optional:-->
+            <aff:channel></aff:channel>
+            <!--Optional:-->
+            <aff:cifKey>${cifKey}</aff:cifKey>
+            <!--Optional:-->
+            <aff:applicationReference></aff:applicationReference>
+        </aff:RetrieveIncomeCalculation>
+    </soapenv:Body>
+</soapenv:Envelope>
