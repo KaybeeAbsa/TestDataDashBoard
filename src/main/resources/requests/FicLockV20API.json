@@ -1,0 +1,36 @@
+{
+
+  "inputHeaders": {
+
+    "NBSAPLI": {
+
+      "consumerChannel": "INTERNAL",
+      "providerApplication": "DATAPORTAL",
+      "trace": ""
+    }
+
+  },
+  "inputMessage": {
+
+    "NBSMSGI": {
+
+      "messageLanguage": "E",
+      "messageTarget": "STD"
+
+    }
+
+  },
+  "CIupdFicLockV20Request": {
+
+    "CIupdFicLockV20RequestInput": {
+
+      "clientCode": "${clientCode}",
+      "newToBankLock": "${newToBankLock}",
+      "softLock": "${softLock}",
+      "riskLock": "${riskLock}"
+
+    }
+
+  }
+
+}
