@@ -1,0 +1,20 @@
+{
+  "inputHeaders": {
+    "inputHeader": {
+      "consumerChannel": "INTERNAL",
+      "providerApplication": "DATAPORTAL",
+      "trace": ""
+    }
+  },
+  "inputCopybook": {
+    "inputArea": {
+      "clientCode": "${clientCode}"
+    }
+  },
+  "inputMessageHeader": {
+    "inputMessage": {
+      "messageLanguage": "E",
+      "messageTarget": "STD"
+    }
+  }
+}

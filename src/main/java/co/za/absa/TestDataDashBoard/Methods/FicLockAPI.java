@@ -51,6 +51,7 @@ public class FicLockAPI {
             return ficResponse(response.getBody());
         }catch (Exception e)
         {
+        //    System.out.println("Inside first catch..");
             e.fillInStackTrace();
             return "Fic Not Added";
         }
@@ -63,7 +64,7 @@ public class FicLockAPI {
         try {
 
             JSONObject jsonObject = new JSONObject(body);
-            array = jsonObject.getJSONObject("outputMessage").getJSONObject("outputErrorMessage").getJSONObject("messageEntry").getString("messageText");
+            array = jsonObject.getJSONObject("CIupdFicLockResponse").getJSONObject("CIupdFicLockResponse").getString("returnCode");
 
         }catch (Exception e)
         {
@@ -74,6 +75,59 @@ public class FicLockAPI {
 
     }
 
+    public String checkFicStatus(String clientCode,String enviroment) {
+        String url = null;
+        HttpHeaders headers;
+        Requests requests = new Requests();
+        Map<String,String> map = new HashMap<>();
+
+        if(enviroment.equalsIgnoreCase("IMSS")){
+
+            url = "https://esb.api.uat.absa.co.za:1001/enterprise-uat/uat/rbb/iigetficalistingdetailsv20api/IIgetFICAListingDetailsV20API";
+            headers = new CIgetClientDetailsByIDNOV20HeadersIMSS().configureCIFHeaders();
+
+        }else{
+
+            url = "https://esb.api.uat.absa.co.za:1001/enterprise-uat/uat/rbb/iigetficalistingdetailsv20api/IIgetFICAListingDetailsV20API";
+            headers = new CIgetClientDetailsByIDNOV20HeadersIMSV().configureCIFHeaders();
+        }
+
+        System.out.println("ClientCode: " + clientCode );
+        map.put("clientCode",clientCode);
+
+        String request = requests.getRequest("getFICAListingDetailsV20API.json",map);
+
+        HttpEntity<String> entity = new HttpEntity<String>(request, headers);
+
+        ResponseEntity<String> response;
+        try {
+            response =  restTemplate.exchange(url, HttpMethod.POST,entity,String.class);
+
+            return ficStatusResponse(response.getBody());
+        }catch (Exception e)
+        {
+            //    System.out.println("Inside first catch..");
+            e.fillInStackTrace();
+            return "Fic Not Added";
+        }
+
+    }
+
+    private String ficStatusResponse(String body) {
+
+        String array = "";
+        try {
+
+            JSONObject jsonObject = new JSONObject(body);
+            array = jsonObject.getJSONObject("outputCopybook").getJSONObject("outputArea").getString("FCAL1Reason");
+
+        }catch (Exception e)
+        {
+            e.fillInStackTrace();
+            array="";
+        }
+        return array;
+    }
 
     public Timer checkHowLongDoesTheAPITake()
     {
