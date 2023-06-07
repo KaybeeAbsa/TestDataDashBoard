@@ -129,6 +129,53 @@ public class FicLockAPI {
         return array;
     }
 
+    public String uploadDocuments(String clientCode,String documentType,String idNumber) {
+        String url = null;
+        HttpHeaders headers;
+        Requests requests = new Requests();
+        Map<String,String> map = new HashMap<>();
+
+        url = "http://uat-cis.sdc.uat.intra.absa.co.za/UAT.CIS/contentstore/api/V1/CIS/Add";
+
+        headers = new CIgetClientDetailsByIDNOV20HeadersIMSV().configureCIFHeaders();
+
+        map.put("clientCode",clientCode);
+        map.put("documentType",documentType);
+        map.put("idNumber",idNumber);
+
+        String request = requests.getRequest("UploadClientDocument.json",map);
+
+        HttpEntity<String> entity = new HttpEntity<String>(request, headers);
+
+        ResponseEntity<String> response;
+        try {
+            response =  restTemplate.exchange(url, HttpMethod.POST,entity,String.class);
+
+            return uploadDocumentsResponse(response.getBody());
+        }catch (Exception e)
+        {
+            //    System.out.println("Inside first catch..");
+            e.fillInStackTrace();
+            return "Document Not Uploaded";
+        }
+    }
+
+    private String uploadDocumentsResponse(String body) {
+
+        String array = "";
+        try {
+
+            JSONObject jsonObject = new JSONObject(body);
+            array = jsonObject.getJSONObject("AddResult").getString("Status");
+
+        }catch (Exception e)
+        {
+            e.fillInStackTrace();
+            array="";
+        }
+        return array;
+    }
+
     public Timer checkHowLongDoesTheAPITake()
     {
         Timer timer = new Timer();
