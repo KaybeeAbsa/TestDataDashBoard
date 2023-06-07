@@ -25,9 +25,7 @@ public class OverDraft {
         Requests requests = new Requests();
         Map<String,String> map = new HashMap<>();
 
-
         if(enviroment.equalsIgnoreCase("IMSS")){
-
             url = "https://esb-api-sit.absa.co.za:3443/sit/sb/rbbedb/CQgetOverdraftDetailsV4API/CQgetOverdraftDetailsV4";
             headers = new CIgetClientDetailsByIDNOV20HeadersIMSS().configureCIFHeaders();
         }else{
