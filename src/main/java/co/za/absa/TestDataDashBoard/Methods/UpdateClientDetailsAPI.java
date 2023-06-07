@@ -16,7 +16,6 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class UpdateClientDetailsAPI {
-
     APITimer apiTimer = new APITimer();
     private RestTemplate restTemplate = new RestTemplate(apiTimer.getClientHttpRequestFactory());
 

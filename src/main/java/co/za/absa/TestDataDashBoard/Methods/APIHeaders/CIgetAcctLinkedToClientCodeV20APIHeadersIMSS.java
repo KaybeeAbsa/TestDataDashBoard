@@ -16,6 +16,7 @@ public class CIgetAcctLinkedToClientCodeV20APIHeadersIMSS {
         httpHeaders.set("X-API-Key","fb4199fd-6b4e-460b-bec6-9a146356502c");
         httpHeaders.set("userid","ABKS580");
         httpHeaders.set("Content-type","application/json");
+
     }
 
 

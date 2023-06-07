@@ -27,7 +27,6 @@ import java.util.*;
 
 @RestController
 public class preAssessedLimits {
-
     APITimer apiTimer = new APITimer();
     private RestTemplate restTemplate = new RestTemplate(apiTimer.getClientHttpRequestFactory());
     public void prePropulation(String clientKey, String netSalary1, String netSalary2, String netSalary3, String salaryAverage, String grossSalary, String netSalary) throws JSONException, ParseException {

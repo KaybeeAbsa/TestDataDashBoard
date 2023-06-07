@@ -12,6 +12,7 @@ public class preAssessedHeaders {
         httpHeaders.set("X-API-Key", "f07ae6cf-2ce0-4cd6-8696-715139e96fb3");
        // httpHeaders.set("Content-Type", "application/soap+xml; charset=utf-8");
           httpHeaders.set("Content-Type", "text/xml");
+
     }
 
     public HttpHeaders configureCIFHeaders() {

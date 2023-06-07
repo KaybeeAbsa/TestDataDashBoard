@@ -115,6 +115,7 @@ public class FicLockAPI {
 
     private String ficStatusResponse(String body) {
 
+
         String array = "";
         try {
 
