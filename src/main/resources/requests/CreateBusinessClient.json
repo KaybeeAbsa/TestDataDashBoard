@@ -1,0 +1,223 @@
+{
+  "NBSAPDPI": {
+    "NBSAPLI": {
+      "consumerChannel": "INTERNAL",
+      "providerApplication": "DATAPORTAL",
+      "traceIndicator": ""
+    }
+  },
+  "NBSMSGI": {
+    "NBSMSGI": {
+      "messageLanguage": "E",
+      "messageTarget": "STD"
+    }
+  },
+  "CIB003I": {
+    "CIcreateClientV22Request": {
+      "initials": "",
+      "commLanguageCode": "E",
+      "titleCode": 0,
+      "surname": "${surname}",
+      "postalAddrLine1": "270 republic road",
+      "postalAddrLine2": " " ,
+      "postalSuburb": "Randburg",
+      "postalTown": "Randburg",
+      "postalAddrRsaCode": 2194,
+      "idDocTypeCode": "${idDocTypeCode}",
+      "idNumber": "${idNumber}",
+      "dateOfBirth": 0,
+      "maritalStatusCode": 0,
+      "genderCode": 0,
+      "minorChildren": "",
+      "occupationCode": 0,
+      "incomeGroupCode": 0,
+      "marriageContractTypeCode": 0,
+      "homeLanguageCode": "E",
+      "clientTypeCode": "${clientTypeCode}",
+      "voluntaryCreditConsolInd": "",
+      "residentialStatusCode": "",
+      "noOfJointParticipants": 0,
+      "saTaxNumber": 0,
+      "firstNames": "",
+      "companyYearEnd": 0,
+      "homeTelephoneDialCode":11,
+      "homeTelephoneNumber": "5432122",
+      "workTelephoneDialcode": 0,
+      "workTelephoneNumber": "",
+      "cellphoneNumber": "${cellphoneNumber}",
+      "workFaxDialCode": 0,
+      "workFaxNumber": 0,
+      "homeFaxOrAlternativeNumDialCode": 0,
+      "homeFaxOrAlternativeNumber": 0,
+      "occupationStatusCode": 0,
+      "employmentSectorCode": 0,
+      "occupationLevelCode": 0,
+      "practiceNumber": "",
+      "clientWebsite": "",
+      "contactPerson": "Karabo",
+      "contactPersonDesignationCode": 1,
+      "emailAddress": "${emailAddress}",
+      "preferredCommMethodCode": 2,
+      "sicCode5": "11110",
+      "sourceOfIncomeCode": 37,
+      "dateIdentified": "${dateIdentified}",
+      "dateVerified": "${dateVerified}",
+      "employeeIdentified": "1196035",
+      "employeeVerified": "1196035",
+      "vatRegistrationNumber": "",
+      "clientNationalityCode": "",
+      "countryPassportIssuedCode": "",
+      "dateExempted": 0,
+      "employeeExempted": "",
+      "exemptionStatusInd": "",
+      "exemptionCode": "",
+      "postMatricQualificationInd": "",
+      "postMatricQualificationCode": 0,
+      "socialGrantInd": "",
+      "groupSchemeCode": 0,
+      "groupSchemeEmp": "",
+      "secondaryPortfolioInd": "",
+      "excControlAffectedPersonCode": 0,
+      "excControlExpiryDate": 0,
+      "dateIdDocIssued": 0,
+      "employerName": "",
+      "employerAddrLine1": "",
+      "employerSuburb": "",
+      "employerTown": "",
+      "employerRsaPostalCode": 0,
+      "physicalAddrLine1": "270 REP ROAD",
+      "physicalAddrLine2": "",
+      "physicalSuburb": "RANDBURG",
+      "physicalTown": "RANDBURG",
+      "physicalRsaPostalCode": 2194,
+      "businessAddrLine1": "270 REP ROAD",
+      "businessAddrLine2": "",
+      "businessSuburb": "RANDBURG",
+      "businessTown": "RANDBURG",
+      "businessRsaPostalCode": 2194,
+      "detailClassificationDataTable": [
+        {
+          "detailClassificationCode": "A01",
+          "detailClassificationPercentage": 100
+        },
+        {
+          "detailClassificationCode": "",
+          "detailClassificationPercentage": 0
+        },
+        {
+          "detailClassificationCode": "",
+          "detailClassificationPercentage": 0
+        }
+      ],
+      "tempResPermitNumber": "",
+      "tempResPermitExpDate": 0,
+      "subClassificationCode": "",
+      "countryIncorporatedCode": "",
+      "cpaThresholdInd": "",
+      "nextOfkinSurname": "",
+      "nextOfkinFirstname": "",
+      "nextOfkinRelationCode": "",
+      "nextOfkinHomeDialCode": "",
+      "nextOfkinHomeTelNumber": "",
+      "nextOfKinWorkDialCode": "",
+      "nextOfKinWorkTelNumber": "",
+      "nextOfKinCellNumber": " ",
+      "nextOfKinEmail": "",
+      "nextOfKinParticipantTitleCode": "",
+      "nextOfKinParticipantInitials": "",
+      "nextOfKinParticipantSurname": "",
+      "controllerOverride": 0,
+      "creditWorthConsentInd": "Y",
+      "casaRefNumber": 888,
+      "registeredAddrLine1": "270 rep road",
+      "registeredAddrLine2": "",
+      "registeredSuburb": "RANDBURG",
+      "registeredTown": "RANDBURG",
+      "registeredAddrRsaPostalCode": 2194,
+      "headOfficeAddrLine1": "270 REP ROAD",
+      "headOfficeAddrLine2": " ",
+      "headOfficeSuburb": "RANDBURG",
+      "headOfficeTown": "RANDBURG",
+      "headOfficeRsaPostalCode": 2194,
+      "countryOfPhysicalAddrCode": "SO003",
+      "countryOfHeadOfficeAddrCode": "SO003",
+      "countryOfRegisteredAddrCode": "SO003",
+      "countryEntityOprtDataTable": [
+        {
+          "countryEntOprtCode": ""
+        },
+        {
+          "countryEntOprtCode": ""
+        },
+        {
+          "countryEntOprtCode": ""
+        },
+        {
+          "countryEntOprtCode": ""
+        },
+        {
+          "countryEntOprtCode": ""
+        },
+        {
+          "countryEntOprtCode": ""
+        },
+        {
+          "countryEntOprtCode": " "
+        },
+        {
+          "countryEntOprtCode": ""
+        },
+        {
+          "countryEntOprtCode": ""
+        },
+        {
+          "countryEntOprtCode": ""
+        }
+      ],
+      "countryOfBirthCode": "SO003",
+      "clientAgreementIssuedInd": "",
+      "sec129DeliveryAddrCode": 0,
+      "saTaxRegisteredInd": "N",
+      "reasonSaTaxNotGivenCode": "",
+      "foreignTaxRegisteredInd": "N",
+      "foreignTaxDataTable": [
+        {
+          "foreignTaxCountryCode": "",
+          "foreignTaxNumber": "",
+          "reasonFtaxNotGivenCode": ""
+        },
+        {
+          "foreignTaxCountryCode": " ",
+          "foreignTaxNumber": "",
+          "reasonFtaxNotGivenCode": ""
+        },
+        {
+          "foreignTaxCountryCode": "",
+          "foreignTaxNumber": "",
+          "reasonFtaxNotGivenCode": ""
+        },
+        {
+          "foreignTaxCountryCode": "",
+          "foreignTaxNumber": "",
+          "reasonFtaxNotGivenCode": ""
+        }
+      ],
+      "nonCreditMarketingGroupInd": "Y",
+      "nonCreditMarketingSmsInd": "Y",
+      "nonCreditMarketingEmailInd": "Y",
+      "nonCreditMarketingAutoVoiceInd": "Y",
+      "nonCreditMarketingTelephoneInd": "N",
+      "nonCreditMarketingPostInd": "N",
+      "creditMarketingGroupInd": "N",
+      "creditMarketingSmsInd": "N",
+      "creditMarketingEmailInd": "N",
+      "creditMarketingAutoVoiceInd": "N",
+      "creditMarketingTelephoneInd": "N",
+      "creditMarketingPostInd": "N",
+      "forecastOfMembers": 0,
+      "marketingPrivacyNoticeInd": "Y",
+      "classOfBeneficiary": "",
+      "nameOfStockExchange": ""
+    }
+  }
+}

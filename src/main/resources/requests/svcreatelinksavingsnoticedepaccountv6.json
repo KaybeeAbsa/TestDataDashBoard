@@ -1,0 +1,46 @@
+{
+  "NBSAPDPI": {
+    "NBSAPLI": {
+      "NBNAPLI_CHANNEL": "INTERNAL",
+      "NBNAPLI_APPLICATION": "DATAPORTAL",
+      "NBNAPLI_TRACE": "Y"
+    }
+  },
+  "MSGI": {
+    "NBSMSGI": {
+      "messageLanguage": "E",
+      "messageTarget": "STD"
+    }
+  },
+  "SVSP15I": {
+    "SVNP15I_INPUT_AREA": {
+      "clientCode": "${cifKey}",
+      "accountSiteCode":8198,
+      "accountSiteType": "034",
+      "transactionSiteCode": 8198,
+      "transactionSiteType": "034",
+      "brandCode": "ABS",
+      "productCode": "${product}",
+      "productVersionNumber": 0,
+      "effectiveDate": "${effectiveDate}",
+      "marketersCode": 1196035,
+      "agencyCode": 34,
+      "tellerCode": 123456,
+      "supervisorCode":222222,
+      "noticePeriod": 0,
+      "withdrawalPercentage": 0,
+      "channelIndicator": "F",
+      "sourceOfFunds1": "${sourceOfFunds1}",
+      "sourceOfFunds2": "",
+      "sourceOfFunds3": "",
+      "sourceOfFunds4": "",
+      "sourceOfFunds5": "",
+      "investmentAmount": 0,
+      "investmentTerm": 0,
+      "rateOption": "F",
+      "creditRatePlanCode": "L",
+      "frequencyCode": 0,
+      "rbaEddRating": "L"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+
+{
+  "NBSAPDPI": {
+    "NBSAPLI": {
+      "consumerChannel": "INTERNAL",
+      "providerApplication": "ABBOT",
+      "trace": ""
+    }
+  },
+  "NBSMSGI": {
+    "NBSMSGI": {
+      "messageLanguage": "E",
+      "messageTarget": "STD"
+    }
+  },
+  "CLSRT1I": {
+    "CIgetClientDetailsV22Request": {
+      "clientCode": "${clientCode}",
+      "clientAccountNumber": 0,
+      "siteCode": 8196
+    }
+  }
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js" ></script>
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous" />
+
+    <link rel="stylesheet" type="text/css" href="css/test.css" />
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+</head>
+
+<body>
+
+
+<div id="test">
+    <h1>ABSA LTD on behalf of (Embosser)</h1>
+
+
+    <input type="text" name="" value="Embosser details">
+
+    <br>
+    Date: <p id="date">Date: </p>
+    Department: <p id="department"></p>
+
+    Supplier: <p id="supplier"> </p>
+
+    <p style="color:red">Quotation is only valid for 60 days.</p>
+
+
+    <table>
+        <tr>
+            <th>Quantity</th>
+            <th>Description</th>
+            <th>Unit Price</th>
+        </tr>
+        <tr>
+            <td id="quantity"></td>
+            <td id="brand"></td>
+            <td>R 89.00</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+
+        <tr>
+            <td></td>
+            <td><b>Total (excl VAT)</b></td>
+            <td id="price"></td>
+        </tr>
+    </table>
+
+    <script>
+  var brand=sessionStorage.getItem("brandvalue");
+  document.getElementById("brand").innerHTML =brand;
+
+  var department=sessionStorage.getItem("departmentvalue");
+  document.getElementById("department").innerHTML =department;
+
+
+  var quantity = parseInt( sessionStorage.getItem("quantityvalue"));
+  document.getElementById("quantity").innerHTML =quantity;
+
+  var currency = "R";
+  var paddedZeros = ".00";
+
+
+if (brand == "LGDC" ||brand == "VASA"||brand == "CSCD") {
+  document.getElementById("supplier").innerHTML = "Gemalto";
+  var unitPrice = 89;
+  var currencyy = "R";
+  var paddedZeros = ".00";
+  var updatedTotal = quantity * unitPrice;
+  var priceInRands=currencyy +' '+ updatedTotal+paddedZeros;
+
+  document.getElementById("price").innerHTML = priceInRands;
+}
+else if(brand == "AVDC"||brand == "CMCD"||brand == "LTDC"){
+	document.getElementById("supplier").innerHTML = "Idemia";
+
+if(quantity == 10){
+  var unitPrice = 80;
+  var currencyy = "R";
+  var paddedZeros = ".00";
+  var updatedTotal = quantity * unitPrice;
+  var priceInRands=currencyy +' '+ updatedTotal+paddedZeros;
+     document.getElementById("price").innerHTML = priceInRands;
+  }
+  else{
+  var unitPrice = 80;
+  var additional=quantity - 10;
+  var additionalPrice = additional*13.04;
+  var currencyy = "R";
+  var paddedZeros = ".00";
+  var updatedTotal = 10 * unitPrice;
+  var total=updatedTotal+additionalPrice;
+  var priceInRands=currencyy +' '+ total;
+     document.getElementById("price").innerHTML = priceInRands;
+  }
+}
+</script>
+
+    <script>
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+
+     const d = new Date();
+     var dd = String(d.getDate()).padStart(2, '0');
+     var yyyy = d.getFullYear();
+     today = dd + ' ' + monthNames[d.getMonth()] + ' ' + yyyy;
+   document.getElementById("date").innerHTML = today;
+  </script>
+
+    <script>
+    function previousPage(){
+      location.href = "testCard";
+    }
+</script>
+
+
+    <form th:action="@{/send}" method="get">
+        <textarea  th:name="reName" rows="10" cols="100" name="reName"></textarea>
+        <button type="submit">Send</button>
+    </form>
+
+    <script>
+  var x = parseInt( sessionStorage.getItem("quantityvalue"));
+  var unitPrice = 89;
+  var currency = "R";
+  var paddedZeros = ".00";
+  var updatedTotal = x * unitPrice;
+
+
+  var priceInRands=currency +' '+ updatedTotal+paddedZeros;
+  document.getElementById("price1").innerHTML = priceInRands;
+</script>
+
+
+    <p><b><font size="3" color="black">Term and Conditions</font></b></p>
+    <p>Offer is subject to (insert embosser name) General Sales Conditions</p>
+    <p>Payment Term: Cards will only be generated once a purchase order has been received</p>
+    <p>Currency of the quote: ZAR</p>
+    <p>Currency of invoicing: ZAR</p>
+    <p>The purchase order and this quote should be emailed to: xxx@absa.africa</p>
+
+
+    <a href="javascript:generatePDF()">Dowload Quote</a>
+
+</div>
+
+    <input type="hidden"  id="brander" value="" th:name="brander"/>
+    <script>
+
+function getBrand()
+{
+   var branding=sessionStorage.getItem("brandvalue");
+
+   return branding;
+ }
+document.getElementById("brander").value =getBrand();
+
+
+</script>
+
+
+<input type="submit" value="Accept" class="btn btn-primary" />
+<input type="reject" value="Reject" class="btn btn-primary" />
+<input onclick="previousPage()" type="back" value="Back" class="btn btn-primary" />
+
+
+<script>
+
+function parseurl()
+{
+  var queryString = window.location.search;
+    console.log(queryString);
+
+
+    var urlParams = new URLSearchParams(queryString);
+
+
+    const brand = urlParams.get('brand')
+    console.log(brand);
+
+    const department = urlParams.get('department')
+    console.log(department);
+
+    }
+</script>
+</body>
+</html>

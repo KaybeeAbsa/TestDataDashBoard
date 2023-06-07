@@ -1,0 +1,64 @@
+{
+  "NBSAPDPI": {
+    "inputHeaders": {
+      "channel": "SALEFRCE",
+      "applicationName": "API",
+      "traceIndicator": "Y"
+    }
+  },
+  "NBSMSGI": {
+    "inputErrorMessage": {
+      "errorMessageLanguage": "E",
+      "errorMessageTarget": "STD"
+    }
+  },
+  "CCS884I": {
+    "genericInput": {
+      "inputChannelName": "SALEFRCE",
+      "tellerCode": "01",
+      "supervisor": 0,
+      "branchCode": 8198,
+      "agencyCode": 0,
+      "option": "P",
+      "cardRequest": "N",
+      "cardType": "C",
+      "ECFIndicator": 0,
+      "clientCode": "${clientCode}",
+      "personalizedIndicator": "Y"
+    },
+    "retrievalList": {
+      "informationAccountNumber": 0
+    },
+    "genericIssuanceInput": {
+      "cardNumber": 0,
+      "brandNumber": "${brand}",
+      "secondaryClientCode": "",
+      "personalizedName": "${name}",
+      "productCode": "${productCode}",
+      "cardFeeIndicator": "N",
+      "deliveryMethod": "F",
+      "deliveryBranch": 8198
+    },
+    "newIssuanceInput": {
+      "tokenReference": 0,
+      "businessIDType": "",
+      "businessIDNumber": "",
+      "businessNameIndicator": "C",
+      "businessSecondaryName": "",
+      "nominatedCQAccount": "${account}",
+      "nominatedSVAccount": 0,
+      "nominatedCreditCard": 0,
+      "autoLinkIndicator": "N",
+      "pinRequiredIndicator": "N",
+      "lostProtectionFeeIndicator": "N",
+      "disabilityIndicator": ""
+    },
+    "replacementInput": {
+      "replacementReasonNumber": 0,
+      "oldCardOpen": "",
+      "oldCardNumber": [
+        0
+      ]
+    }
+  }
+}

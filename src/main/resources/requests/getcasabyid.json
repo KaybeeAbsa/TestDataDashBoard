@@ -1,0 +1,8 @@
+{
+  "apiVersionNo": "7.5",
+  "jointORPartnershipName": "",
+  "passportNumber": "",
+  "idNumber":"${idNumber}",
+  "companyRegistrationNo": "",
+  "source": "PORTAL"
+}

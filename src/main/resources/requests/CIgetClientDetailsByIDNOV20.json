@@ -1,0 +1,26 @@
+{
+  "NBSAPDPI": {
+    "NBSAPLI": {
+      "consumerChannel": "INTERNAL",
+      "providerApplication": "DATAPORTAL",
+      "trace": ""
+    }
+  },
+  "NBSMSGI": {
+    "NBSMSGI": {
+      "messageLanguage": "E",
+      "messageTarget": "STD"
+    }
+  },
+  "inputCopybookClssidi": {
+    "inputDetails": {
+      "idNumber": "${idNumber}",
+      "idDocumentType": "${idDocumentType}",
+      "cifClientGroup": "${cifClientGroup}",
+      "cifClientType": 0,
+      "maxRecordsToRetrieve": 15,
+      "restartSearchPosition": "",
+      "siteCode": 8196
+    }
+  }
+}

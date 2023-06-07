@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html vlang="en-US" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <title>Login</title>
+  <base href="TestDataDashBoard" />
+  <link rel="stylesheet" type="text/css" href="css/demo.css" />
+  <link rel="stylesheet" type="text/css" href="css/login.css" />
+</head>
+
+<div class="login-container">
+  <header>
+    <div class="logo-contain">
+      <img class="logo" src="css/absalogo.png" />
+    </div>
+    <div class="header-message">
+      <h3>Welcome To Central Test Data Portal</h3>
+    </div>
+  </header>
+  <body>
+  <div id="container_demo" class="login-body">
+    <div id="wrapper">
+      <form name='f' th:action="@{/login}" method="post">
+        <div th:if="${param.error}" class=" alert-error">
+          Invalid username and password.
+        </div>
+        <div th:if="${param.logout}" class="alert-success">
+          You have been logged out.
+        </div>
+
+        <p>
+          <label for="username" class="login-label" data-icon="u">Username:</label>
+          <input id="username" name="username" type="text"
+                 placeholder="Enter Username" class="login-input" />
+        </p>
+        <p>
+          <label for="password" class="login-label" data-icon="p">Password:</label>
+          <input id="password" name="password" required="required" type="password"
+                 placeholder="Enter Password" class="login-input" />
+        </p>
+        <input type="submit" name="submit" id="submit" value="Login"
+               class="login-button" />
+      </form>
+    </div>
+  </div>
+  </body>
+</div>
+</html>

@@ -1,0 +1,33 @@
+{
+  "customerCommonDetails": {
+    "customerType": "I",
+    "customerId": "",
+    "identificationType": "001",
+    "sbu": "",
+    "originatingSystem": "ARO",
+    "sourceSystem": "ECASA_PORTAL_ADHOC",
+    "teller": "exsc185",
+    "branch": "632005",
+    "address": [],
+    "orgUnit": "ZM"
+  },
+  "customerIndividualDetails": {
+    "firstName": "${firstName}",
+    "middleName": "",
+    "surname": "${surname}",
+    "identificationNumber": "${identificationNumber}",
+    "dateOfBirth": "",
+    "nationality": "SOU01",
+    "countryOfResidence": "ZA",
+    "countryOfBirth": "IN",
+    "countryOfPassport": ""
+  },
+  "customerEntityDetails": {
+    "companyName": "",
+    "companyTradingAsName": "",
+    "dateOfRegistration": "",
+    "companyRegistrationNumber": "",
+    "countryOfOperation": [],
+    "countriesTradedWith": []
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "NBSAPDPI": {
+    "NBSAPLI": {
+      "NBNAPLI_CHANNEL": "INTERNAL",
+      "NBNAPLI_APPLICATION": "DATAPORTAL",
+      "NBNAPLI_TRACE": "Y"
+    }
+  },
+  "MSGI": {
+    "NBSMSGI": {
+      "NBNMSGI_MSG_LANGUAGE": "E",
+      "NBNMSGI_MSG_TARGET": "STD"
+    }
+  },
+  "CQS411I": {
+    "CQN411I_INPUT_AREA": {
+      "accountNbr": 0,
+      "openSite": 8392,
+      "controlSite": 8392,
+      "cifKey": "${cifKey}",
+      "tellerNbr": 11,
+      "controllerNbr": 111,
+      "workstationNbr": 0,
+      "product": "${product}",
+      "applicationNbr": 0,
+      "controlSiteType": "034",
+      "openSiteType": "034",
+      "effectiveDate": "${effectiveDate}",
+      "marketersCode": 11,
+      "provChqBookInd": "N",
+      "cbpSchemeCode": "",
+      "cbpPrimaryAccount": 0,
+      "SourceOfFunds1": "${SourceOfFunds1}",
+      "SourceOfFunds2": "0",
+      "SourceOfFunds3": "0",
+      "SourceOfFunds4": "0",
+      "SourceOfFunds5": "0",
+      "digitalChannel": "F",
+      "rbaEdd": "L",
+      "odRequired": "N",
+      "packageId": 0,
+      "fraudInd": "N"
+    }
+  }
+}

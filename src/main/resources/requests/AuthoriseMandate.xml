@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collectionsDebtorResponse>
+    <mandateRequestTransactionId>${mandateRequestTransactionId}</mandateRequestTransactionId>
+    <accountNumber>${accountNumber}</accountNumber>
+    <debtorResponse>ACCEPT</debtorResponse>
+    <responseDate>2017-06-08T11:22:00</responseDate>
+    <submissionDate>2017-06-08T22:22:04</submissionDate>
+    <userName>${userName}</userName>
+    <systemUsed>ATM</systemUsed>
+    <additionalAudit>Additional Info</additionalAudit>
+    <rejectionReasonCode></rejectionReasonCode>
+</collectionsDebtorResponse>
+

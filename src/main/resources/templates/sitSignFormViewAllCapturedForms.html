@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html vlang="en-US" ng-app="TestDataDashBoardApp" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>request test card</title>
+    <base href="TestDataDashBoard" />
+
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="css/test.css" />
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <link rel="stylesheet" type="text/css" href="css/popup.css" />
+
+    <style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+<!--#-->
+<!--#f2f2f2-->
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #ED820E;
+  color: white;
+}
+
+#INTERFACES {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+
+}
+
+#INTERFACES td, #INTERFACES th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#INTERFACES tr:nth-child(even){background-color: #f2f2f2;}
+
+#INTERFACES tr:hover {background-color: #ddd;}
+
+#INTERFACES th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #ED820E;
+  color: white;
+  }
+
+#ScrumMaster {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#ScrumMaster td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#ScrumMaster tr:nth-child(even){background-color: #f2f2f2;}
+
+#ScrumMaster tr:hover {background-color: #ddd;}
+
+#ScrumMaster th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+#ScrumMaster td b {
+  text-align: left;
+ <!-- background-color: #04AA6D;-->
+  color: white;
+}
+
+</style>
+
+</head>
+
+<body ng-controller="SitSignFormViewAllController">
+<div class="top-nav shadow-sm" style="display: flex">
+    <ul class="nav nav-pills" style="width: 100%">
+        <li class="nav-item">
+            <a class="nav-link" href="homepage">
+                <img class="one" src="css/absalogo.png"
+                     style="width:50px;height:50px;float: left;" />
+            </a>
+        </li>
+        <li class="nav-item nav-alignment">
+            <a class="nav-link" href="homepage"
+               ng-class="{ active: pathurl.endsWith('/homepage') }">Home</a>
+        </li>
+        <li class="nav-item nav-alignment">
+            <a class="nav-link" href="home"
+               ng-class="{ active: pathurl.endsWith('/home') }">Request Test Data</a>
+        </li>
+        <li class="nav-item nav-alignment">
+            <a class="nav-link" href="specialRequest"
+               ng-class="{ active: pathurl.endsWith('/specialRequest') }">Bureau Data
+                Request</a>
+        </li>
+
+        <li class="nav-item nav-alignment">
+            <a onclick="document.getElementById('id01').style.display='block'" class="nav-link"
+               ng-class="{ active: pathurl.endsWith('/testCard') }">Physical Test Cards Issuing</a>
+        </li>
+        <li class="nav-item nav-alignment">
+            <a onclick="document.getElementById('id011').style.display='block'"  ng-click="checkemail()" class="nav-link"
+               ng-class="{ active: pathurl.endsWith('/sitSignOff') }">SIT Sign Off</a>
+        </li>
+
+        <li class="nav-item nav-alignment">
+            <a class="nav-link " href="sitsignoff"
+               ng-class="{ active: pathurl.endsWith('/contact') }">Contact TDM Team</a>
+        </li>
+
+        <li class="nav-item nav-alignment">
+            <a class="nav-link" href="about"
+               ng-class="{ active: pathurl.endsWith('/about') }">About TDM Team</a>
+        </li>
+    </ul>
+    <form name='f' th:action="@{/logout}" method="post" class="float-right">
+        <button type="submit" class="logout">Log out</button>
+    </form>
+</div>
+<div class="container">
+    <header>
+        <div class="header">
+        </div>
+    </header>
+
+
+    <div class="container">
+        <div id="id01" class="modal1">
+            <div class="modal-content1">
+                <header class="container-modal1">
+                    <h5 style="color:white">Please Note:</h5>
+                </header>
+                <div class="container">
+                    <a href="/tester" target="_blank">SIT Sign Off</a>
+                    <a href="/sitSignOff" target="_blank">Authorise</a>
+                </div>
+                <footer class="container">
+                    <input type="button" id="close"  value="Close" class="button" data-dismiss="modal" />
+                </footer>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+    document.getElementById("close").onclick = function () {
+        location.href = "testCard";
+    };
+    </script>
+
+    <div class="container">
+        <div id="id011" class="modal1">
+            <div class="modal-content1">
+                <header class="container-modal1">
+                    <h5 style="color:white">Please Select An Option</h5>
+                </header>
+                <div class="container">
+                    <a href="sitSignOffCapture" target="_blank">Create</a>
+                    <br>
+                    <a href="sitSignFormView" target="_blank">View</a>
+                    <br>
+                    <a href="sitSignOff" target="_blank">Sign Off</a>
+                    <br>
+                    <a href="sitSignFormEdit" target="_blank" >Edit</a>
+                    <br>
+                    <a href="sitSignFormViewCapture" target="_blank">View Captured Forms</a>
+                    <br>
+                    <a href="sitSignFormViewAllCapturedForms" id="ViewAllCaptured" target="_blank">View All Forms</a>
+
+                </div>
+                <footer class="container">
+                    <input type="button" id="closed"  value="Close" class="button" data-dismiss="modal" />
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    document.getElementById("closed").onclick = function () {
+        location.href = "sitSignOff";
+    };
+    </script>
+
+    <div id="container_demo" class="row">
+
+
+       <a class="hiddenanchor" id="tonewtobank"></a>
+        <div class="col"></div>
+
+        <form name="signoffview"  novalidate>
+
+            <div class="container">
+
+                <img src="css/operationSignOff.PNG" class="center" alt="" border=3 style="width: 100%">
+
+                <table id="INTERFACES">
+                    <thead>
+                     <tr>
+                            <th colspan="8" scope="colgroup" style="text-align: center" >INTERFACES / CONTRACTED AREAS</th>
+                     </tr>
+
+                    <tr>
+                        <th>Interface Area</th>
+                        <th>Contact Person</th>
+                        <th>Project Manager</th>
+                        <th>Approval Status</th>
+                        <th>Impl Date</th>
+                        <th>Change Name</th>
+                        <th>PDF Document</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="testdata in SignOffForm">
+                        <td><input id="interfaceareaaa" value="{{testdata.interfacearea}}" readonly ng-model="testdata.interfacearea" class="form-control"
+                                   ng-class="{ errorinput: submitted && signoffview.interfacearea.$invalid }"
+                                   name="interfacearea"/>
+                        <td><input id="contactpersonn" value="{{testdata.contactperson}}" readonly ng-model="testdata.contactperson" class="form-control"
+                                   ng-class="{ errorinput: submitted && signoffview.contactperson.$invalid }"
+                                   name="contactperson"/>
+                        <td><input id="projectmanager" readonly ng-model="testdata.projectmanager" class="form-control"
+                                   ng-class="{ errorinput: submitted && signoffview.projectmanager.$invalid }"
+                                   name="projectmanager" type="text" value="{{testdata.projectmanager}}"/>
+                        <td><input name="changename" id="status" value="{{testdata.status}}"  readonly ng-model="testdata.status" class="form-control"
+                                   ng-class="{ errorinput: submitted && signoffview.status.$invalid }"/>
+                        <td><input id="implementationdate"  readonly ng-model="testdata.implementationdate" class="form-control"
+                                   ng-class="{ errorinput: submitted && signoffview.impldate.$invalid }"
+                                   value="{{testdata.implementationdate}}" name="implementationdate"/>
+                        <td><input name="changename" id="changename" value="{{testdata.changename}}" readonly ng-model="testdata.changename" class="form-control"
+                                   ng-class="{ errorinput: submitted && signoffview.changename.$invalid }"/>
+                        <td> <input type="submit" name="documentpdf" id="Download PDF file" value="Download PDF file" ng-click="downloadPdf(testdata.documentpdf)" class="btn btn-primary" ng-disabled="testdata.documentpdf == 'NO ATTACHMENT' || testdata.documentpdf == 'undefined'"/>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+        <div class="col"></div>
+    </div>
+</div>
+</div>
+</body>
+</html>

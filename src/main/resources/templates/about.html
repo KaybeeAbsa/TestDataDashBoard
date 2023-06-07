@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html vlang="en-US" ng-app="TestDataDashBoardApp" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>about us</title>
+    <base href="TestDataDashBoard" />
+
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="css/test.css" />
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <link rel="stylesheet" type="text/css" href="css/popup.css" />
+</head>
+
+<body ng-controller="TestDataController">
+<div class="top-nav shadow-sm" style="display: flex">
+    <ul class="nav nav-pills" style="width: 100%">
+        <li class="nav-item">
+            <a class="nav-link" href="homepage">
+                <img class="one" src="css/absalogo.png"
+                     style="width:50px;height:50px;float: left;" />
+            </a>
+        </li>
+        <li class="nav-item nav-alignment">
+            <a class="nav-link" href="homepage"
+               ng-class="{ active: pathurl.endsWith('/homepage') }">Home</a>
+        </li>
+        <li class="nav-item nav-alignment">
+            <a class="nav-link" href="home"
+               ng-class="{ active: pathurl.endsWith('/home') }">Request Test Data</a>
+        </li>
+        <li class="nav-item nav-alignment">
+            <a class="nav-link" href="specialRequest"
+               ng-class="{ active: pathurl.endsWith('/specialRequest') }">Bureau Data
+                Request</a>
+        </li>
+
+        <li class="nav-item nav-alignment">
+            <a onclick="document.getElementById('id01').style.display='block'" class="nav-link"
+               ng-class="{ active: pathurl.endsWith('/testCard') }">Physical Test Cards Issuing</a>
+        </li>
+
+        <li class="nav-item nav-alignment">
+            <a onclick="document.getElementById('id011').style.display='block'"  ng-click="checkemail()" class="nav-link"
+               ng-class="{ active: pathurl.endsWith('/sitSignOff') }">SIT Sign Off</a>
+        </li>
+
+        <li class="nav-item nav-alignment">
+            <a class="nav-link " href="contact"
+               ng-class="{ active: pathurl.endsWith('/contact') }">Contact TDM Team</a>
+        </li>
+        <li class="nav-item nav-alignment">
+            <a class="nav-link" href="about"
+               ng-class="{ active: pathurl.endsWith('/about') }">About TDM Team</a>
+        </li>
+    </ul>
+    <form name='f' th:action="@{/logout}" method="post" class="float-right">
+        <button type="submit" class="logout"> Log out</button>
+    </form>
+</div>
+
+<div class="container">
+    <div id="id01" class="modal">
+        <div class="modal-content">
+            <header class="container-modal">
+                <h5 style="color:white">Please Note:</h5>
+            </header>
+            <div class="container">
+                <p>There are costs associated with this service.</p>
+            </div>
+            <footer class="container">
+                <input type="button" id="close"  value="Close" class="button" data-dismiss="modal" />
+            </footer>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    document.getElementById("close").onclick = function () {
+        location.href = "testCard";
+    };
+</script>
+
+
+<div class="container">
+    <div id="id011" class="modal1">
+        <div class="modal-content1">
+            <header class="container-modal1">
+                <h5 style="color:white">Please Select An Option</h5>
+            </header>
+            <div class="container">
+                <a href="sitSignOffCapture" target="_blank">Create</a>
+                <br>
+                <a href="sitSignFormView" target="_blank">View</a>
+                <br>
+                <a href="sitSignOff" target="_blank">Sign Off</a>
+                <br>
+                <a href="sitSignFormEdit" target="_blank">Edit</a>
+                <br>
+                <a href="sitSignFormViewCapture" target="_blank">View Captured Forms</a>
+                <br>
+                <a href="sitSignFormViewAllCapturedForms" id="ViewAllCaptured" target="_blank">View All Forms</a>
+
+            </div>
+            <footer class="container">
+                <input type="button" id="closed"  value="Close" class="button" data-dismiss="modal" />
+            </footer>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    document.getElementById("closed").onclick = function () {
+        location.href = "sitSignOff";
+    };
+    </script>
+
+<div class="container">
+    <header>
+        <div class="header">
+            <h3>About Test Data Team</h3>
+        </div>
+    </header>
+    <body>
+    <div>
+        <p>
+            We as Test Data Management team we strive to support almost every project across
+            Absa with required transactional test data to enable effective testing.
+        </p>
+
+        <p>
+            The online Dashboard is designed to provide instant data. Functionalities are
+            gradually being developed and added on the dashboard through different sprints
+        </p>
+
+        <p style="font-weight: bolder">
+            Our service catalogue includes:
+        </p>
+
+        <p style="font-weight: bold">
+            Data Creation:
+        </p>
+
+        <ul>
+            <li>Cheque Accounts</li>
+            <li>Savings Account</li>
+            <li>Credit Cards</li>
+            <li>Personal Loans</li>
+            <li>Adding Pre-approved</li>
+            <li>Linking virtual combi cards</li>
+        </ul>
+
+        <p style="font-weight: bolder">
+            Outside Everyday Banking
+        </p>
+        <p>
+            We are unable to create data for applications like: <samp>Home Loan, AVAF</samp>
+            however we
+            can source whatever is available on the mainframe
+        </p>
+
+        <p>
+            We have limited access and knowledge to different systems, however we committed
+            to assist were possible.
+        </p>
+        <p>
+            For any further requirements or feedback you can also email us on
+            <a class="email" href="mailto:Test.Data.Management@absa.africa">
+                <code>  Test.Data.Management@absa.africa  </code>
+            </a>
+        </p>
+    </div>
+    </body>
+</div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html vlang="en-US" ng-app="TestDataDashBoardApp" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <title>bureau data request</title>
+    <base href="TestDataDashBoard" />
+
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="css/test.css" />
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+</head>
+
+<body ng-controller="SpecialRequestController">
+<div class="top-nav shadow-sm" style="display: flex">
+    <ul class="nav nav-pills" style="width: 100%">
+        <li class="nav-item">
+            <a class="nav-link" href="homepage">
+                <img class="one" src="css/absalogo.png"
+                     style="width:50px;height:50px;float: left;" />
+            </a>
+        </li>
+        <li class="nav-item nav-alignment">
+            <a class="nav-link" href="homepage"
+               ng-class="{ active: pathurl.endsWith('/homepage') }">Home</a>
+        </li>
+        <li class="nav-item nav-alignment">
+            <a class="nav-link" href="home"
+               ng-class="{ active: pathurl.endsWith('/home') }">Request Test Data</a>
+        </li>
+        <li class="nav-item nav-alignment">
+            <a class="nav-link" href="specialRequest"
+               ng-class="{ active: pathurl.endsWith('/specialRequest') }">Bureau Data
+                Request</a>
+        </li>
+
+        <li class="nav-item nav-alignment">
+            <a onclick="document.getElementById('id01').style.display='block'" class="nav-link"
+               ng-class="{ active: pathurl.endsWith('/testCard') }">Physical Test Cards Issuing</a>
+        </li>
+
+        <li class="nav-item nav-alignment">
+            <a onclick="document.getElementById('id011').style.display='block'"  ng-click="checkemail()" class="nav-link"
+               ng-class="{ active: pathurl.endsWith('/sitSignOff') }">SIT Sign Off</a>
+        </li>
+
+        <li class="nav-item nav-alignment">
+            <a class="nav-link " href="contact"
+               ng-class="{ active: pathurl.endsWith('/contact') }">Contact TDM Team</a>
+        </li>
+        <li class="nav-item nav-alignment">
+            <a class="nav-link" href="about"
+               ng-class="{ active: pathurl.endsWith('/about') }">About TDM Team</a>
+        </li>
+        <li class="nav-item nav-alignment">
+            <i data-feather="circle"></i>
+        </li>
+    </ul>
+    <form name='f' th:action="@{/logout}" method="post" class="float-right">
+        <button type="submit" class="logout"> Log out</button>
+    </form>
+</div>
+
+<div class="container">
+    <div id="id01" class="modal1">
+        <div class="modal-content1">
+            <header class="container-modal1">
+                <h5 style="color:white">Please Note:</h5>
+            </header>
+            <div class="container">
+                <p>There are costs associated with this service.</p>
+            </div>
+            <footer class="container">
+                <input type="button" id="close"  value="Close" class="button" data-dismiss="modal" />
+            </footer>
+        </div>
+    </div>
+</div>
+
+
+   <script type="text/javascript">
+    document.getElementById("close").onclick = function () {
+        location.href = "testCard";
+    };
+    </script>
+
+
+<div class="container">
+    <div id="id011" class="modal1">
+        <div class="modal-content1">
+            <header class="container-modal1">
+                <h5 style="color:white">Please Select An Option</h5>
+            </header>
+            <div class="container">
+                <a href="sitSignOffCapture" target="_blank">Create</a>
+                <br>
+                <a href="sitSignFormView" target="_blank">View</a>
+                <br>
+                <a href="sitSignOff" target="_blank">Sign Off</a>
+                <br>
+                <a href="sitSignFormEdit" target="_blank">Edit</a>
+                <br>
+                <a href="sitSignFormViewCapture" target="_blank">View Captured Forms</a>
+                <br>
+                <a href="sitSignFormViewAllCapturedForms" id="ViewAllCaptured" target="_blank">View All Forms</a>
+
+            </div>
+            <footer class="container">
+                <input type="button" id="closed"  value="Close" class="button" data-dismiss="modal" />
+            </footer>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    document.getElementById("closed").onclick = function () {
+        location.href = "sitSignOff";
+    };
+    </script>
+
+<div class="container">
+    <header>
+        <div class="header">
+            <h3>Bureau Test Data Request</h3>
+        </div>
+    </header>
+    <body>
+    <div id="container_demo" class="row">
+        <a class="hiddenanchor" id="tonewtobank"></a>
+        <div class="col"></div>
+        <div id="wrapper" class="col-7">
+            <form name="specialrequest" ng-submit="specialReq()" novalidate>
+                <p class="form-group">
+                    <label for="rname" class="rname" data-icon="u">Requestor's Name:</label>
+                    <input id="rname" class="form-control" ng-model="rname" readonly
+                           ng-class="{ errorinput: submitted && specialrequest.rname.$invalid }"
+                           name="rname" required="required" type="text"
+                           placeholder="Enter Requestor's Name" />
+                    <!-- <span class="e" ng-show="submitted && existing.rname.$invalid">Please provide Requestor's Name:</span>-->
+                </p>
+                <p class="form-group">
+                    <label for="tname" class="tname" data-icon="u">Team Name:</label>
+                    <input id="tname" class="form-control" ng-model="tname"
+                           ng-class="{ errorinput: submitted && specialrequest.tname.$invalid }"
+                           name="tname" required="required" type="text"
+                           placeholder="Enter Team Name" />
+                    <!-- <span class="e" ng-show="submitted && existing.tname.$invalid">Please provide Requestor's Team Name:</span>-->
+                </p>
+                <p class="form-group">
+                    <label for="email" class="email" data-icon="e"> Email Address:</label>
+                    <input id="email" class="form-control" ng-model="email" readonly
+                           ng-class="{ errorinput: submitted && specialrequest.email.$invalid }"
+                           name="email" type="email" placeholder="email@absa.africa"
+                           required="required" />
+                    <!-- <span class="e" ng-show="submitted && existing.email.$invalid">Please provide Requestor's Email Address:</span>-->
+                </p>
+                <p class="form-group">
+                    <label for="cellNo" class="cellNo" data-icon="u">Cell Number: </label>
+                    <input id="cellNo" class="form-control" ng-model="cellNo"
+                           ng-minlength="10"
+                           ng-class="{ errorinput: submitted && specialrequest.cellNo.$invalid }"
+                           name="cellNo" required="required" type="text"
+                           placeholder="Enter Mobile No" />
+                    <!-- <span class="e" ng-show="submitted && existing.cellNo.$invalid">Please provide Requestor's Contact Number:</span>-->
+                </p>
+                <p class="form-group">
+                    <label>Select Bureau Type:</label>
+                    <select id="selectedBureau" class="form-control" name="selectedBureau"
+                            ng-model="selectedBureau"
+                            ng-class="{ errorinput: submitted && specialrequest.selectedBureau.$invalid }"
+                            required="required">
+                        <option value="">Bureau Type</option>
+                        <option value="TransUnion">TransUnion</option>
+                        <option value="Experian">Experian</option>
+                    </select>
+                </p>
+                <P class="form-group">
+                    <label for="comment" class="comment">Enter your Data Request below:
+                    </label>
+                    <textarea id="comment" class="form-control" ng-model="comment" rows="5"
+                              cols="65" name="comment">
+                    </textarea>
+                </P>
+                <div class="alert alert-success popup" id="myPopup">
+                    <span class="popuptext" >Successfully Send...</span>
+                </div>
+                <div class="alert alert-error popup" id="errorPopup">
+                    <span class="popuptext" >{{errorMessage}}</span>
+                </div>
+                <input type="submit" value="Submit Request" class="btn btn-primary" />
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+    </body>
+</div>
+</body>
+</html>

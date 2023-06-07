@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html vlang="en-US" ng-app="TestDataDashBoardApp" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>request test card</title>
+    <base href="TestDataDashBoard" />
+
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="css/test.css" />
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <link rel="stylesheet" type="text/css" href="css/popup.css" />
+
+    <style>
+    #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+    <!--#-->
+    <!--#f2f2f2-->
+
+    #customers tr:hover {background-color: #ddd;}
+
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #ED820E;
+      color: white;
+    }
+
+
+    #INTERFACES {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #INTERFACES td, #INTERFACES th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #INTERFACES tr:nth-child(even){background-color: #f2f2f2;}
+
+    #INTERFACES tr:hover {background-color: #ddd;}
+
+    #INTERFACES th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #ED820E;
+      color: white;
+      }
+
+
+
+
+    #ScrumMaster {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #ScrumMaster td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #ScrumMaster tr:nth-child(even){background-color: #f2f2f2;}
+
+    #ScrumMaster tr:hover {background-color: #ddd;}
+
+    #ScrumMaster th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #04AA6D;
+      color: white;
+    }
+
+    #ScrumMaster td b {
+      text-align: left;
+     <!-- background-color: #04AA6D;-->
+      color: white;
+    }
+
+    </style>
+
+</head>
+
+<!--<body ng-controller="SignOffController">-->
+<body ng-controller="EditSignOffController">
+<div class="top-nav shadow-sm" style="display: flex">
+    <ul class="nav nav-pills" style="width: 100%">
+        <li class="nav-item">
+            <a class="nav-link" href="homepage">
+                <img class="one" src="css/absalogo.png"
+                     style="width:50px;height:50px;float: left;" />
+            </a>
+        </li>
+        <li class="nav-item nav-alignment">
+            <a class="nav-link" href="homepage"
+               ng-class="{ active: pathurl.endsWith('/homepage') }">Home</a>
+        </li>
+        <li class="nav-item nav-alignment">
+            <a class="nav-link" href="home"
+               ng-class="{ active: pathurl.endsWith('/home') }">Request Test Data</a>
+        </li>
+        <li class="nav-item nav-alignment">
+            <a class="nav-link" href="specialRequest"
+               ng-class="{ active: pathurl.endsWith('/specialRequest') }">Bureau Data
+                Request</a>
+        </li>
+
+        <li class="nav-item nav-alignment">
+            <a onclick="document.getElementById('id01').style.display='block'" class="nav-link"
+               ng-class="{ active: pathurl.endsWith('/testCard') }">Physical Test Cards Issuing</a>
+        </li>
+
+        <li class="nav-item nav-alignment">
+            <a onclick="document.getElementById('id011').style.display='block'"  ng-click="checkemail()" class="nav-link"
+               ng-class="{ active: pathurl.endsWith('/sitSignOff') }">SIT Sign Off</a>
+        </li>
+
+        <li class="nav-item nav-alignment">
+            <a class="nav-link " href="sitsignoff"
+               ng-class="{ active: pathurl.endsWith('/contact') }">Contact TDM Team</a>
+        </li>
+
+        <li class="nav-item nav-alignment">
+            <a class="nav-link" href="about"
+               ng-class="{ active: pathurl.endsWith('/about') }">About TDM Team</a>
+        </li>
+    </ul>
+    <form name='f' th:action="@{/logout}" method="post" class="float-right">
+        <button type="submit" class="logout">Log out</button>
+    </form>
+</div>
+<div class="container">
+    <header>
+        <div class="header">
+        </div>
+    </header>
+
+
+    <div class="container">
+        <div id="id01" class="modal1">
+            <div class="modal-content1">
+                <header class="container-modal1">
+                    <h5 style="color:white">Please Note:</h5>
+                </header>
+                <div class="container">
+                    <a href="/tester" target="_blank">SIT Sign Off</a>
+                    <a href="/sitSignOff" target="_blank">Authorise</a>
+                </div>
+                <footer class="container">
+                    <input type="button" id="close"  value="Close" class="button" data-dismiss="modal" />
+                </footer>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+    document.getElementById("close").onclick = function () {
+        location.href = "testCard";
+    };
+    </script>
+
+
+    <script>
+	$(document).ready(function () {
+
+	// Denotes total number of rows
+	var rowIdx = 0;
+
+	// jQuery button click event to add a row
+	$('#addBtn').on('click', function () {
+
+		// Adding a row inside the tbody.
+		$('#tbody').append(`<tr id="R${++rowIdx}">
+        <td><input type="text" id="row-1-age12" name="row-1-age12" ></td>
+        <td><input type="text" id="row-1-age13" name="row-1-age13" ></td>
+        <td><input type="text" id="row-1-age14" name="row-1-age14" ></td>
+			</tr>`);
+	});
+
+
+	// jQuery button click event to remove a row.
+	$('#tbody').on('click', '.remove', function () {
+
+		// Getting all the rows next to the row
+		// containing the clicked button
+		var child = $(this).closest('tr').nextAll();
+
+		// Iterating across all the rows
+		// obtained to change the index
+		child.each(function () {
+
+		// Getting <tr> id.
+		var id = $(this).attr('id');
+
+		// Getting the <p> inside the .row-index class.
+		var idx = $(this).children('.row-index').children('p');
+
+		// Gets the row number from <tr> id.
+		var dig = parseInt(id.substring(1));
+
+		// Modifying row index.
+		idx.html(`Row ${dig - 1}`);
+
+		// Modifying row id.
+		$(this).attr('id', `R${dig - 1}`);
+		});
+
+		// Removing the current row.
+		$(this).closest('tr').remove();
+
+		// Decreasing total number of rows by 1.
+		rowIdx--;
+	});
+	});
+</script>
+
+
+    <div class="container">
+        <div id="id011" class="modal1">
+            <div class="modal-content1">
+                <header class="container-modal1">
+                    <h5 style="color:white">Please Select An Option</h5>
+                </header>
+                <div class="container">
+                    <a href="sitSignOffCapture" target="_blank">Create</a>
+                    <br>
+                    <a href="sitSignFormView" target="_blank">View</a>
+                    <br>
+                    <a href="sitSignOff" target="_blank">Sign Off</a>
+                    <br>
+                    <a href="sitSignFormEdit" target="_blank">Edit</a>
+                    <br>
+                    <a href="sitSignFormViewCapture" target="_blank">View Captured Forms</a>
+                    <br>
+                    <a href="sitSignFormViewAllCapturedForms" id="ViewAllCaptured" target="_blank">View All Forms</a>
+
+                </div>
+                <footer class="container">
+                    <input type="button" id="closed"  value="Close" class="button" data-dismiss="modal" />
+                </footer>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+    document.getElementById("closed").onclick = function () {
+        location.href = "sitSignOff";
+    };
+    </script>
+
+
+
+    <div id="container_demo" class="row">
+        <a class="hiddenanchor" id="tonewtobank"></a>
+        <div class="col"></div>
+        <div id="wrapper" class="col-7">
+            <form name="signoff" ng-submit="searchEditSitSignOff()" novalidate>
+                <div class="container">
+
+                    <input id="email" ng-model="email" readonly class="form-control"
+                           ng-class="{ errorinput: submitted && signoff.email.$invalid }"
+                           name="email" required="required" type="text">
+
+                    <input id="interfaceArea" ng-model="interfaceArea" class="form-control"
+                           ng-class="{ errorinput: submitted && signoff.interfaceArea.$invalid }"
+                           name="interfaceArea" required="required" type="text" placeholder="Enter Token">
+
+                    <div class="alert alert-error popup" id="errorPopup">
+                        <span class="popuptext" >{{errorMessage}}</span>
+                    </div>
+
+                    <a id="dlinkk" style="display:none;"></a>
+                    <div class="mb-5 mt-4">
+                        <input type="submit" id="btnSubmitt" value="Retrieve"
+                               class="btn btn-primary" />
+                    </div>
+                </div>
+            </form>
+
+
+            <form name="signoffview"  novalidate>
+                <!--<img src="css/net.jpg" style="width:150;height:50; " />-->
+                <div class="container">
+
+                    <!-- Success Modal -->
+                    <div id="successModal" class="modal">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="closeModal" data-dismiss="alert" onclick="closingModal()">&times;</span>
+                            <img src='css/checkIcon.png' class="checkIcon" alt='Random image'/>
+                            <h3>Success!</h3>
+                            <p>Your request has been successfully saved.</p>
+                        </div>
+                    </div>
+
+                    <script>
+                    // Get the modal
+                    var modal = document.getElementById("successModal");
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("closeModal")[0];
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function() {
+                     //   modal.style.display = "none";
+                        window.location.reload();
+                        window.setInterval(500)
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                        if (event.target == modal) {
+                           // modal.style.display = "none";
+                            window.location.reload();
+                            window.setInterval(500)
+                        }
+                    }
+                </script>
+
+                    <table>
+                        <td><img src="css/operationSignOff.PNG" alt="" border=3 height=100 width=700></td>
+                    </table>
+
+                    <p><i>To verify whether the subsystems constituting the software product work as expected and work together in a streamlined manner. Ensuring that software product and its subsystems meet the requirements, as well as operate and interoperate without technical failures (nothing crashes).</i></p>
+
+                    <table id="customers">
+                        <tr>
+                            <th colspan="5" scope="colgroup">PROJECT DETAILS</th>
+                        </tr>
+                        <tr ng-repeat="testdata in NtbTestData">
+                            <td><b>Authorization Status</b></td>
+
+                            <td><input name="changename" id="status" value="{{testdata.status}}"  readonly ng-model="testdata.status" class="form-control"
+                                       ng-class="{ errorinput: submitted && signoffview.status.$invalid }"/>
+                        </tr>
+
+                        <tr ng-repeat="testdata in NtbTestData">
+                            <td>Token</td>
+                            <td ><input id="sitsignoffid" value="{{testdata.sitsignoffid}}" readonly ng-model="testdata.sitsignoffid" class="form-control"
+                                        ng-class="{ errorinput: submitted && auth.sitsignoffid.$invalid }"
+                                        name="sitsignoffid"/>
+                        </tr>
+
+                        <tr ng-repeat="testdata in NtbTestData">
+                            <td><b>Project/Change Name</b></td>
+
+                            <td><input name="changename" id="changename" value="{{testdata.changename}}" readonly ng-model="testdata.changename" class="form-control"
+                                       ng-class="{ errorinput: submitted && signoffview.changename.$invalid }"/>
+                         </tr>
+
+                        <tr ng-repeat="testdata in NtbTestData">
+                            <td><b>Project/Change Number (if applicable)</b></td>
+                            <td><input id="changenumber" readonly ng-model="testdata.changenumber" class="form-control"
+                                       ng-class="{ errorinput: submitted && signoffview.changenumber.$invalid }"
+                                       name="changenumber" value="{{testdata.changenumber}}"/>
+                         </tr>
+
+                        <tr ng-repeat="testdata in NtbTestData">
+                            <td><b>Project Manager / Scrum Master</b> </td>
+                            <td><input id="projectmanager" readonly ng-model="testdata.projectmanager" class="form-control"
+                                       ng-class="{ errorinput: submitted && signoffview.projectmanager.$invalid }"
+                                       name="projectmanager" type="text" value="{{testdata.projectmanager}}"/>
+                         </tr>
+
+                        <tr ng-repeat="testdata in NtbTestData">
+                            <td><b>Tower / Cluster</b></td>
+                            <td><input id="tower" value="{{testdata.tower}}" readonly ng-model="testdata.tower" class="form-control"
+                                       ng-class="{ errorinput: submitted && signoffview.tower.$invalid }"
+                                       name="tower"/>
+                         </tr>
+
+                        <tr ng-repeat="testdata in NtbTestData">
+                            <td><b>Implementation Date </b></td>
+                            <td><input id="implementationdate" ng-model="testdata.implementationdate" class="form-control"
+                                       ng-class="{ errorinput: submitted && signoffview.impldate.$invalid }"
+                                       value="{{testdata.implementationdate}}" name="implementationdate"/>
+                       </tr>
+
+                        <tr ng-repeat="testdata in NtbTestData">
+                            <td><b>System Test Completed </b></td>
+                            <td><input id="testingcompleted" readonly ng-model="testdata.testingcompleted" class="form-control"
+                                       ng-class="{ errorinput: submitted && signoffview.testingcompleted.$invalid }"
+                                       value="{{testdata.testingcompleted}}" name="testingcompleted"/>
+                        </tr>
+                    </table>
+
+                    <br>
+                    <br>
+
+                    <table id="INTERFACES">
+
+                        <thead>
+                        <tr>
+                            <th colspan="5" scope="colgroup">INTERFACES / CONTRACTED AREAS</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr ng-repeat="testdata in NtbTestData">
+                            <td>Interface Area</td>
+                            <td ><input id="interfacearea1" value="{{testdata.interfacearea}}" ng-model="testdata.interfacearea" class="form-control"
+                                        ng-class="{ errorinput: submitted && signoffview.interfacearea.$invalid }"
+                                        name="interfacearea"/>
+                        </tr>
+
+                        <tr ng-repeat="testdata in NtbTestData">
+                            <td>Contact Person</td>
+                            <td ><input id="contactperson" value="{{testdata.contactperson}}" ng-model="testdata.contactperson" class="form-control"
+                                        ng-class="{ errorinput: submitted && signoffview.contactperson.$invalid }"
+                                        name="contactperson"/>
+                         </tr>
+
+
+                        <tr ng-repeat="testdata in NtbTestData">
+                            <td>Contact Email</td>
+                            <td ><input id="contactemail" value="{{testdata.contactemail}}" ng-model="testdata.contactemail" class="form-control"
+                                        ng-class="{ errorinput: submitted && signoffview.contactemail.$invalid }"
+                                        name="contactemail"/>
+                         </tr>
+
+
+                        <tr ng-repeat="testdata in NtbTestData">
+                            <td colspan="5"><input type="submit" id="btnSubmit" ng-click="UpdateEditSignOffDetails(testdata)"
+                                                   class="btn btn-primary" /></td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <br>
+
+                    <script>
+                        var date = new Date();
+
+                        var day = date.getDate();
+                        var month = date.getMonth() + 1;
+                        var year = date.getFullYear();
+
+                        if (month < 10) month = "0" + month;
+                        if (day < 10) day = "0" + day;
+
+                        var today = year + "-" + month + "-" + day;
+
+
+                        document.getElementById('theDate').value = today;
+                    </script>
+
+
+                    <br>
+                    <br>
+                    <br>
+
+                </div>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+</div>
+</body>
+</html>

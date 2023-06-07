@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.4.2</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>co.za.absa</groupId>
+	<artifactId>TestDataDashBoard</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>TestDataDashBoard</name>
+	<description>Test Data Management Dash Board</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.ldap</groupId>
+			<artifactId>spring-ldap-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-ldap</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.9.10</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.ulisesbocchio</groupId>
+			<artifactId>jasypt-spring-boot-starter</artifactId>
+			<version>3.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	 <dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>org.eclipse.persistence.core</artifactId>
+	  <version>2.7.7</version>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>org.eclipse.persistence.asm</artifactId>
+	  <version>2.7.7</version>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>org.eclipse.persistence.antlr</artifactId>
+	  <version>2.7.7</version>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>org.eclipse.persistence.jpa</artifactId>
+	  <version>2.7.7</version>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>org.eclipse.persistence.jpa.jpql</artifactId>
+	  <version>2.7.7</version>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>org.eclipse.persistence.moxy</artifactId>
+	  <version>2.7.7</version>
+	 </dependency>
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.0.0-alpha-7</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-chrome-driver</artifactId>
+			<version>4.0.0-alpha-7</version>
+		</dependency>
+
+	 <dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>javax.persistence</artifactId>
+	  <version>2.2.1</version>
+	 </dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-jpamodelgen</artifactId>
+			<version>5.0.12.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jagacy3270</groupId>
+			<artifactId>jagacy3270</artifactId>
+			<version>4.2.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>5.3</version>
+		</dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.7.0</version>
+        </dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.16-beta1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.vaadin.external.google</groupId>
+			<artifactId>android-json</artifactId>
+			<version>0.0.20131108.vaadin1</version>
+			<scope>compile</scope>
+		</dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.4.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>pdfbox</artifactId>
+			<version>2.0.24</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/com.github.dhorions/boxable -->
+		<dependency>
+			<groupId>com.github.dhorions</groupId>
+			<artifactId>boxable</artifactId>
+			<version>1.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180130</version>
+        </dependency>
+
+    </dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.github.ulisesbocchio</groupId>
+				<artifactId>jasypt-maven-plugin</artifactId>
+				<version>3.0.4</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<groupId>jagacy3270</groupId>
+					<artifactId>jagacy3270</artifactId>
+					<version>4.2.3</version>
+					<packaging>jar</packaging>
+					<file>${project.basedir}/lib/Jagacy3270.jar</file>
+					<generatePom>true</generatePom>
+				</configuration>
+				<executions>
+					<execution>
+						<id>install-jar-lib</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>validate</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

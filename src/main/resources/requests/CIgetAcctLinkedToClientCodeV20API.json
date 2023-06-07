@@ -1,0 +1,22 @@
+{
+  "inputHeaders": {
+    "inputMessages": {
+      "consumerChannel": "INTERNAL",
+      "providerApplication": "DATAPORTAL",
+      "trace": ""
+    }
+  },
+  "inputMessageHeader": {
+    "inputMessages": {
+      "messageLanguage": "E",
+      "messageTarget": "STD"
+    }
+  },
+  "CIgetAcctLinkedToClientCodeV20Request": {
+    "clientCode": "${clientKey}",
+    "accountNumber": 0,
+    "maximumRecordsToReturn": 50,
+    "restartKey": "",
+    "siteCode": 8198
+  }
+}
