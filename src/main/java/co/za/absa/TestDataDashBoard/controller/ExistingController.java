@@ -61,7 +61,7 @@ public class ExistingController {
 
     private String clientCode = null;
     private int update = 0;
-
+    private  String comment = "";
     private String compliantStatus;
 
     private String newToProductAccount = "";
@@ -385,12 +385,6 @@ public class ExistingController {
                             continue;
                         }
 
-                     /*  if(!addFicLock(clientKey[0],reEnviroment))
-                        {
-                            quantity++;
-                            continue;
-                        }*/
-
                     }else{
 
                         String getficLockStatus = ficLock.checkFicStatus(clientKey[0],reEnviroment);
@@ -416,20 +410,17 @@ public class ExistingController {
                     //get Fic Compliant Status.
                     compliantStatus  = cIgetClientDetailsV22.retrieveComplentStatus(clientKey[0]);
 
-                   // String reCompliant = "Partially";
-
                     if(reSelectedCompliant.equalsIgnoreCase("Partially")){
 
-                        System.out.println("Inside Partially");
                         if(!compliantStatus.equalsIgnoreCase(reSelectedCompliant)){
                             String upload = ficLock.uploadDocuments(clientKey[0],"Ent_ProofOfId",idtype);
-                            System.out.println("Upload document: " + upload);
 
                             if(!upload.equalsIgnoreCase("OK")){
                                 quantity++;
                                 continue;
                             }
-                            System.out.println("Partially Compliant");
+                            compliantStatus = "Partially";
+                            comment = "Client Compliant Status will update in 24hours";
                         }
 
                     }else if(reSelectedCompliant.equalsIgnoreCase("Compliant")){
@@ -437,32 +428,26 @@ public class ExistingController {
                         if(!compliantStatus.equalsIgnoreCase(reSelectedCompliant)){
                             String uploadId = ficLock.uploadDocuments(clientKey[0],"Ent_ProofOfId",idtype);
 
-                            System.out.println("Upload id document: " + uploadId);
-
                             if(!uploadId.equalsIgnoreCase("OK")){
-                                System.out.println("Inside Not Okay  compliant");
                                 quantity++;
                                 continue;
                             }
 
                             String uploadAddress = ficLock.uploadDocuments(clientKey[0],"Ent_ProofOfAddress",idtype);
 
-                            System.out.println("Upload address document: " + uploadAddress);
-
                             if(!uploadAddress.equalsIgnoreCase("OK")){
                                 quantity++;
                                 continue;
                             }
-                            System.out.println("Client Compliant");
-
+                            compliantStatus = "Compliant";
+                            comment = "Client Compliant Status will update in 24hours";
                         }
                     }else if(reSelectedCompliant.equalsIgnoreCase("NonCompliant")){
-                        System.out.println("Inside None-Comlpiant");
+
                         if(!compliantStatus.equalsIgnoreCase(reSelectedCompliant)){
                             quantity++;
                             continue;
                         }
-                        System.out.println("Client None Compliant");
                     }
 
                     String linkedAccount="";
@@ -518,6 +503,8 @@ public class ExistingController {
 
                     existing.setName(dbName);
                     existing.setFicCompliantStatus(compliantStatus);
+                    existing.setComment(comment);
+
                     testData.add(existing);
 
                     service.updatedUsedColumn(usedValue, date, reName, reTeam, reEmail, reMobile, idtype, reEnviroment);

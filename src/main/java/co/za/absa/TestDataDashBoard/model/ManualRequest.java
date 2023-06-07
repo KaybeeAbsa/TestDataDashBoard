@@ -44,7 +44,7 @@ public class ManualRequest {
     @Column(name = "requestcombi")
     private String requestCombi;
 
-    @Column(name = "requestcomment")
+    @Column(name = "requestcomment",length=10485760)
     private String requestComment;
 
     public ManualRequest(int requestid, String requestorName, String requestorTeam, String requestorEmail, int requestQuantity, String requestScore, String requestEnviroment, String requestProduct, String requestClientType, String requestPreApproved, String requestCombi, String requestComment) {

@@ -522,15 +522,43 @@ public class ClientCreationController {
                     policyNumber=newPolicy.createNewPolicy(clientKey,idType,firstName,lastName,policy);
                 }
 
-                if(ficHold.equalsIgnoreCase("yes")) {
 
-                    if(!addFicLock(clientKey,reEnviroment))
-                    {
+                FicLockAPI ficLock = new FicLockAPI();
+                String newtoBankLock, softLock, ficRiskLock;
+                    //add Fic Lock's
+                    if(!ficHold.equalsIgnoreCase("NO")) {
+
+                        if(ficHold.equalsIgnoreCase("newToBankLock")){
+
+                            newtoBankLock = "Y";
+                            softLock="N";
+                            ficRiskLock="N";
+                        }else if(ficHold.equalsIgnoreCase("softLock")){
+
+                            newtoBankLock = "N";
+                            softLock="Y";
+                            ficRiskLock="N";
+                        }else{
+
+                            newtoBankLock = "N";
+                            softLock="N";
+                            ficRiskLock="Y";
+                        }
+
+                        String ficLockStatus = ficLock.addFic(clientKey, newtoBankLock,softLock,ficRiskLock,reEnviroment);
+
+                        if(!ficLockStatus.equalsIgnoreCase("0")){
                             quantity++;
                             continue;
-                    }
+                        }
 
-                }
+                     /*  if(!addFicLock(clientKey[0],reEnviroment))
+                        {
+                            quantity++;
+                            continue;
+                        }*/
+
+                    }
 
                 if(cifHold.equalsIgnoreCase("IdentificationRequired") || cifHold.equalsIgnoreCase("InsolventEstate")|| cifHold.equalsIgnoreCase("DeceasedEstate") || cifHold.equalsIgnoreCase("SpouseDeceased") || cifHold.equalsIgnoreCase("Curatorship") || cifHold.equalsIgnoreCase("ClientAgreementIssued") || cifHold.equalsIgnoreCase("NewPostalAddressRequired") || cifHold.equalsIgnoreCase("NewResidentialAddressRequired") || cifHold.equalsIgnoreCase("NewEmployersNameAddressRequired"))
                 {

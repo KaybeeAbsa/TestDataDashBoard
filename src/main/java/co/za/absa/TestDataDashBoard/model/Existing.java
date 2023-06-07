@@ -44,6 +44,8 @@ public class Existing {
     @Column(name = "aol")
     private String aol;
 
+    @Column(name = "comment")
+    private String comment;
     private String ecasa;
 
     private String policy;
@@ -53,7 +55,7 @@ public class Existing {
     public Existing() {
     }
 
-    public Existing(int existingid, String idtype, String enviromenttype, String requestdate, int score, String used, String requestorName, String requestorTeam, String requestorEmail, String requestorMobile, String surname, String name, String secondname, String clientCode, String bureauType, String accountNo, String aol, String ecasa, String policy, String ficCompliantStatus) {
+    public Existing(int existingid, String idtype, String enviromenttype, String requestdate, int score, String used, String requestorName, String requestorTeam, String requestorEmail, String requestorMobile, String surname, String name, String secondname, String clientCode, String bureauType, String accountNo, String aol, String comment, String ecasa, String policy, String ficCompliantStatus) {
         this.existingid = existingid;
         this.idtype = idtype;
         this.enviromenttype = enviromenttype;
@@ -71,6 +73,7 @@ public class Existing {
         this.bureauType = bureauType;
         this.accountNo = accountNo;
         this.aol = aol;
+        this.comment = comment;
         this.ecasa = ecasa;
         this.policy = policy;
         this.ficCompliantStatus = ficCompliantStatus;
@@ -236,6 +239,14 @@ public class Existing {
         this.secondname = secondname;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
     @Override
     public String toString() {
         return idtype + ';' +
@@ -249,6 +260,7 @@ public class Existing {
                 ecasa + ';' +
                 policy + ';' +
                 bureauType + ';' +
-                ficCompliantStatus ;
+                ficCompliantStatus + ';' +
+                comment ;
     }
 }

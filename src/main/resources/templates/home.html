@@ -1319,7 +1319,6 @@
 
                         <div ng-switch="selectedProduct">
                             <div ng-switch-when="ExCheque">
-
                                 <div ng-switch="selectedClientType">
                                     <div ng-switch-when="00101">
                                         <div class="row mt-1">
@@ -1810,21 +1809,6 @@
                                                     </select>
                                                 </div>
                                             </div>
-
-                                           <!-- <div class="col">
-                                                <div class="form-group">
-                                                    <label>Add Pre-Approved:</label>
-                                                    <select ng-model="$parent.$parent.selectedPreApproved"
-                                                            ng-class="{ errorinput: submitted && existing.selectedPreApproved.$invalid }"
-                                                            name="selectedPreApproved" required="required"
-                                                            class="form-control">
-                                                        <option value=""> Pre-Approved
-                                                        <option value="Yes">Yes
-                                                        <option value="No">No
-                                                    </select>
-                                                </div>
-                                            </div>-->
-
                                         </div>
                                     </div>
 
@@ -1869,20 +1853,6 @@
                                                 </div>
                                             </div>
 
-                                        <!--    <div class="col">
-                                                <div class="form-group">
-                                                    <label>Add Pre-Approved:</label>
-                                                    <select ng-model="$parent.$parent.selectedPreApproved"
-                                                            ng-class="{ errorinput: submitted && existing.selectedPreApproved.$invalid }"
-                                                            name="selectedPreApproved" required="required"
-                                                            class="form-control">
-                                                        <option value=""> Pre-Approved
-                                                        <option value="Yes">Yes
-                                                        <option value="No">No
-                                                    </select>
-                                                </div>
-                                            </div>-->
-
                                         </div>
                                     </div>
 
@@ -1918,20 +1888,6 @@
                                             </select>
                                         </div>
                                     </div>
-
-                               <!--     <div class="col">
-                                        <div class="form-group ">
-                                            <label>Add over-draft</label>
-                                            <select ng-model="$parent.selectedAddOverDraft"
-                                                    name="selectedAddOverDraft" class="form-control"
-                                                    ng-class="{ errorinput: submitted && existing.selectedAddOverDraft.$invalid }"
-                                                    required="required">
-                                                <option value=""> Add Over-Draft
-                                                <option value="Yes">Yes
-                                                <option value="No">No
-                                            </select>
-                                        </div>
-                                    </div>-->
 
                                     <div class="row mt-1">
                                         <div class="col">
@@ -1994,66 +1950,7 @@
                                     </div>
 
                                 </div>
-                                 <!--   <div class="row mt-1">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label>Add Insurance Policy:</label>
-                                                <select ng-model="$parent.selectedPolicy"
-                                                        ng-class="{ errorinput: submitted && existing.selectedPolicy.$invalid }"
-                                                        name="selectedPolicy"
-                                                        class="form-control"
-                                                        required="required">
-                                                    <option value="">Add Insurance Policy
-                                                    <option value="NO">Do Not Add Policy
-                                                    <option value="250100000">Absa Enhanced Flexi Funeral Plan Funeral-Member
-                                                    <option value="260100000">Enhanced Flexi Funeral Plan (Freemium) Funeral-Member
-                                                </select>
-                                            </div>
-                                        </div>
 
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label>Add Fic Hold:</label>
-                                                <select ng-model="$parent.selectedFicHold"
-                                                        ng-class="{ errorinput: submitted && existing.selectedFicHold.$invalid }"
-                                                        name="selectedFicHold"
-                                                        class="form-control"
-                                                        required="required">
-                                                    <option value="">Add Fic Hold
-                                                    <option value="NO">Do Not Add Fic Hold
-                                                    <option value="newToBankLock"> New To Bank Lock
-                                                    <option value="softLock"> Soft Lock
-                                                    <option value="riskLock"> Fic Risk Lock
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label>Add CIF Hold:</label>
-                                                <select ng-model="$parent.selectedCifHold"
-                                                        ng-class="{ errorinput: submitted && existing.selectedCifHold.$invalid }"
-                                                        name="selectedCifHold"
-                                                        class="form-control"
-                                                        required="required">
-                                                    <option value="">Add Cif Hold
-                                                    <option value="NO">Do Not Add CIF Hold
-                                                    <option value="IdentificationRequired">Identification Required
-                                                    <option value="InsolventEstate">Insolvent Estate
-                                                    <option value="DeceasedEstate">Deceased Estate
-                                                    <option value="SpouseDeceased">Spouse Deceased
-                                                    <option value="Curatorship">Curatorship
-                                                    <option value="ClientAgreementIssued">Client Agreement Issued
-                                                    <option value="NewPostalAddressRequired">New Postal Address Required
-                                                    <option value="NewResidentialAddressRequired">New Residential Address Required
-                                                    <option value="NewEmployersNameAddressRequired">New Employers Name/Address Required
-                                                </select>
-
-                                            </div>
-                                        </div>
-
-
-                                </div>-->
                             </div>
 
                             <div ng-switch-when="ExCard">
@@ -2438,16 +2335,18 @@
                                             </div>
 
                                             <div class="col">
-                                                <div class="form-group">
+                                                <div class="form-group ">
                                                     <label>Add Fic Hold:</label>
-                                                    <select ng-model="$parent.$parent.selectedFicHold"
+                                                    <select ng-model="$parent.selectedFicHold"
                                                             ng-class="{ errorinput: submitted && existing.selectedFicHold.$invalid }"
                                                             name="selectedFicHold"
                                                             class="form-control"
                                                             required="required">
                                                         <option value="">Add Fic Hold
-                                                        <option value="yes"> YES
-                                                        <option value="no"> NO
+                                                        <option value="NO">Do Not Add Fic Hold
+                                                        <option value="newToBankLock"> New To Bank Lock
+                                                        <option value="softLock"> Soft Lock
+                                                        <option value="riskLock"> Fic Risk Lock
                                                     </select>
                                                 </div>
                                             </div>
@@ -2551,16 +2450,18 @@
                                             </div>
 
                                             <div class="col">
-                                                <div class="form-group">
+                                                <div class="form-group ">
                                                     <label>Add Fic Hold:</label>
-                                                    <select ng-model="$parent.$parent.selectedFicHold"
+                                                    <select ng-model="$parent.selectedFicHold"
                                                             ng-class="{ errorinput: submitted && existing.selectedFicHold.$invalid }"
                                                             name="selectedFicHold"
                                                             class="form-control"
                                                             required="required">
                                                         <option value="">Add Fic Hold
-                                                        <option value="yes"> YES
-                                                        <option value="no"> NO
+                                                        <option value="NO">Do Not Add Fic Hold
+                                                        <option value="newToBankLock"> New To Bank Lock
+                                                        <option value="softLock"> Soft Lock
+                                                        <option value="riskLock"> Fic Risk Lock
                                                     </select>
                                                 </div>
                                             </div>
@@ -2726,16 +2627,18 @@
                                             </div>
 
                                             <div class="col">
-                                                <div class="form-group">
+                                                <div class="form-group ">
                                                     <label>Add Fic Hold:</label>
-                                                    <select ng-model="$parent.$parent.selectedFicHold"
+                                                    <select ng-model="$parent.selectedFicHold"
                                                             ng-class="{ errorinput: submitted && existing.selectedFicHold.$invalid }"
                                                             name="selectedFicHold"
                                                             class="form-control"
                                                             required="required">
                                                         <option value="">Add Fic Hold
-                                                        <option value="yes"> YES
-                                                        <option value="no"> NO
+                                                        <option value="NO">Do Not Add Fic Hold
+                                                        <option value="newToBankLock"> New To Bank Lock
+                                                        <option value="softLock"> Soft Lock
+                                                        <option value="riskLock"> Fic Risk Lock
                                                     </select>
                                                 </div>
                                             </div>
@@ -2838,20 +2741,21 @@
                                             </div>
 
                                             <div class="col">
-                                                <div class="form-group">
+                                                <div class="form-group ">
                                                     <label>Add Fic Hold:</label>
-                                                    <select ng-model="$parent.$parent.selectedFicHold"
+                                                    <select ng-model="$parent.selectedFicHold"
                                                             ng-class="{ errorinput: submitted && existing.selectedFicHold.$invalid }"
                                                             name="selectedFicHold"
                                                             class="form-control"
                                                             required="required">
                                                         <option value="">Add Fic Hold
-                                                        <option value="yes"> YES
-                                                        <option value="no"> NO
+                                                        <option value="NO">Do Not Add Fic Hold
+                                                        <option value="newToBankLock"> New To Bank Lock
+                                                        <option value="softLock"> Soft Lock
+                                                        <option value="riskLock"> Fic Risk Lock
                                                     </select>
                                                 </div>
                                             </div>
-
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label>Add CIF Hold:</label>
