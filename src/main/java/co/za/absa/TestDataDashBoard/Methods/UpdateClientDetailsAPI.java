@@ -63,12 +63,11 @@ public class UpdateClientDetailsAPI {
        // System.out.println("new request " + jsonObject);
 
         HttpEntity<String> entity = new HttpEntity<String>(jsonObject.toString(), httpHeaders);
-        ResponseEntity<String> response = restTemplate.exchange(endpoint, HttpMethod.POST, entity, String.class);
-
-      //  System.out.println("error: " + getCreateClientErrorResponse(response.getBody()));
-      //  System.out.println("error: " + getClientKey(response.getBody()));
+        //ResponseEntity<String> response = restTemplate.exchange(endpoint, HttpMethod.POST, entity, String.class);
 
         try {
+            ResponseEntity<String> response = restTemplate.exchange(endpoint, HttpMethod.POST, entity, String.class);
+
             if (getClientKey(response.getBody()).isEmpty()) {
                 return getCreateClientErrorResponse(response.getBody());
             } else return getClientKey(response.getBody());

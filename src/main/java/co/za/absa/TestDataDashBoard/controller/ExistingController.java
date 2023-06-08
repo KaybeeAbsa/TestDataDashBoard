@@ -496,6 +496,12 @@ public class ExistingController {
                     String updated;
                     if(updatedClient ==1 && reEnviroment.equalsIgnoreCase("IMSV")){
                          updated =  updateClientDetailsAPI.updateClientDetails(existing.getClientCode(),firstName,dbSurname,existing.getIdtype(),initials,reMobile,reEmail);
+
+                         if(updated == null){
+                             quantity++;
+                             continue;
+                         }
+
                     }else if(reEnviroment.equalsIgnoreCase("IMSV")){
                       //  updated =  updateClientDetailsAPI.updateClientDetails(existing.getClientCode(),firstName,dbSurname,existing.getIdtype(),initials,reMobile,reEmail);
                     //fix and only update cell phone numbers
